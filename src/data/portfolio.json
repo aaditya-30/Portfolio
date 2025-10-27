@@ -1,0 +1,57 @@
+{
+  "name": "Aaditya Bansal",
+  "title": "Full Stack Developer and Software Engineer",
+  "bio": "Passionate developer building scalable web applications with expertise in React and Node.js",
+  "email": "aadityabansal9598@gmail.com",
+  "github": "https://github.com/aaditya-30",
+  "linkedin": "https://www.linkedin.com/in/aaditya-bansal-79561a28b/",
+  "Leetcode": "https://leetcode.com/u/aaditya_30/",
+  "Codeforces": "https://codeforces.com/profile/aaditya_30",
+  "Codolio": "https://codolio.com/profile/aaditya_30",
+
+  "projects": [
+    {
+      "id": "rbac-system",
+      "title": "Role-Based Access Control System",
+      "description": "Full-stack authentication and authorization platform with JWT, featuring three user roles, activity logging, and user management. Built with React and Node.js.",
+      "longDescription": "A production-ready RBAC application implementing secure JWT authentication and authorization. Features three distinct user roles (Admin, Editor, Viewer) with granular permissions, real-time activity logging, comprehensive user management, and modern responsive UI. Includes 32 unit and integration tests.",
+      "tech": ["React", "Node.js", "Express", "JWT", "TailwindCSS", "Vite"],
+      "live": "https://rbac-iota-lilac.vercel.app",
+      "github": "https://github.com/aaditya-30/RBAC",
+      "image": "/assets/RBAC.png",
+      "featured": true,
+      "category": "Full-Stack",
+      "date": "October 2025"
+    },
+    {
+      "id": "2",
+      "title": "Portfolio",
+      "description": "You are on this website.",
+      "tech": ["React", "TailwindCSS", "Vite"],
+      "live": "#",
+      "github": "https://github.com/aaditya-30/Portfolio",
+      "image": "/assets/image.png",
+      "featured": "Frontend",
+      "date": "October 2025"
+    }
+  ],
+
+  "skills": [
+    { "name": "JavaScript", "description": "Modern ES6+ for web apps" },
+    { "name": "Python" },
+    { "name": "C++", "description": "System programming" },
+    { "name": "Java", "description": "Object-oriented programming" },
+    { "name": "SQL", "description": "Database management" },
+    { "name": "React.js", "description": "JavaScript Library" },
+    { "name": "Node.js", "description": "Backend runtime" },
+    { "name": "Express.js", "description": "Web framework" },
+    { "name": "HTML5", "description": "Markup language" },
+    { "name": "CSS3", "description": "Styling & layouts" },
+    { "name": "TailwindCSS", "description": "CSS framework" },
+    { "name": "Git", "description": "Version control" },
+    { "name": "GitHub", "description": "Code repository" },
+    { "name": "VS Code", "description": "Code editor" },
+    { "name": "Data Structures and Algorithms", "description": "" },
+    { "name": "Competitive Programming", "description": "" }
+  ]
+}
