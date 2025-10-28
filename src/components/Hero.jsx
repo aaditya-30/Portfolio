@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import portfolioData from '../data/portfolio.json';
 
 const Hero = () => {
-  const { name, title, bio, github, linkedin, Leetcode, Codeforces, Codolio } = portfolioData;
+  const { name, title, bio, github, linkedin} = portfolioData;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,39 +84,6 @@ const Hero = () => {
             className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
           >
             LinkedIn
-          </motion.a>
-
-          <motion.a
-            href={Leetcode}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition-colors shadow-lg hover:shadow-xl"
-          >
-            LeetCode
-          </motion.a>
-
-          <motion.a
-            href={Codeforces}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl"
-          >
-            Codeforces
-          </motion.a>
-
-          <motion.a
-            href={Codolio}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl"
-          >
-            Codolio
           </motion.a>
 
           <motion.button
