@@ -1,99 +1,106 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import portfolioData from '../data/portfolio.json';
-import { 
-  SiJavascript, SiPython, SiCplusplus,
-  SiReact, SiNodedotjs, SiExpress, SiHtml5, SiCss3,
-  SiTailwindcss, SiGit, SiGithub, 
-  SiJest, SiVercel, SiMysql
-} from 'react-icons/si';
-import { TbApi, TbCode } from 'react-icons/tb';
-import { FaJava } from 'react-icons/fa';
-import { VscCode } from 'react-icons/vsc';
-import { RiKey2Fill } from 'react-icons/ri';
 
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const iconMap = {
-    'JavaScript': { icon: <SiJavascript />, color: 'from-yellow-400 to-yellow-600' },
-    'Python': { icon: <SiPython />, color: 'from-blue-500 to-blue-700' },
-    'C++': { icon: <SiCplusplus />, color: 'from-blue-600 to-purple-600' },
-    'Java': { icon: <FaJava />, color: 'from-red-500 to-orange-600' },
-    'SQL': { icon: <SiMysql />, color: 'from-cyan-500 to-blue-600' },
-    'React.js': { icon: <SiReact />, color: 'from-cyan-400 to-blue-500' },
-    'Node.js': { icon: <SiNodedotjs />, color: 'from-green-500 to-green-700' },
-    'Express.js': { icon: <SiExpress />, color: 'from-gray-600 to-gray-800' },
-    'HTML5': { icon: <SiHtml5 />, color: 'from-orange-500 to-red-600' },
-    'CSS3': { icon: <SiCss3 />, color: 'from-blue-500 to-blue-700' },
-    'TailwindCSS': { icon: <SiTailwindcss />, color: 'from-cyan-400 to-teal-500' },
-    'Git': { icon: <SiGit />, color: 'from-orange-600 to-red-600' },
-    'GitHub': { icon: <SiGithub />, color: 'from-gray-700 to-gray-900' },
-    'VS Code': { icon: <VscCode />, color: 'from-blue-500 to-blue-700' },
-    'JWT': { icon: <RiKey2Fill />, color: 'from-pink-500 to-purple-600' },
-    'REST APIs': { icon: <TbApi />, color: 'from-green-500 to-emerald-600' },
-    'Jest': { icon: <SiJest />, color: 'from-red-600 to-pink-600' },
-    'Vercel': { icon: <SiVercel />, color: 'from-gray-900 to-black' },
-    'Render': { icon: <TbCode />, color: 'from-purple-600 to-indigo-600' }
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
   };
 
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
+
+  const categories = [
+    {
+      title: 'Languages',
+      color: 'from-gray-300 to-gray-400',
+      shadow: 'group-hover:shadow-[0_0_30px_rgba(52,211,153,0.2)]',
+      border: 'group-hover:border-emerald-500/50',
+      skills: ['C++', 'Java', 'JavaScript', 'Python', 'SQL'],
+    },
+    {
+      title: 'Frontend',
+      color: 'from-gray-200 to-gray-400',
+      shadow: 'group-hover:shadow-[0_0_30px_rgba(34,211,238,0.2)]',
+      border: 'group-hover:border-cyan-500/50',
+      skills: ['React.js', 'HTML', 'CSS', 'TailwindCSS'],
+    },
+    {
+      title: 'Backend',
+      color: 'from-gray-300 to-gray-500',
+      shadow: 'group-hover:shadow-[0_0_30px_rgba(129,140,248,0.2)]',
+      border: 'group-hover:border-indigo-500/50',
+      skills: ['Node.js', 'Express.js'],
+    },
+    {
+      title: 'Tools & Platforms',
+      color: 'from-gray-400 to-gray-600',
+      shadow: 'group-hover:shadow-[0_0_30px_rgba(251,191,36,0.2)]',
+      border: 'group-hover:border-amber-500/50',
+      skills: ['Git', 'GitHub', 'VS Code', 'JIRA', 'Excel', 'Word'],
+    },
+    {
+      title: 'Core Fundamentals',
+      color: 'from-white to-gray-300',
+      shadow: 'group-hover:shadow-[0_0_30px_rgba(251,113,133,0.2)]',
+      border: 'group-hover:border-rose-500/50',
+      skills: ['Data Structures & Algorithms', 'System Design Base', 'OOP', 'DBMS', 'Operating Systems', 'Networking Core'],
+    },
+  ];
+
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-20 bg-gray-900">
-      <motion.div 
+    <section id="skills" className="min-h-[90svh] flex flex-col items-center justify-center px-4 py-24 relative z-10 w-full max-w-7xl mx-auto">
+      <motion.div
         ref={ref}
-        className="max-w-6xl w-full"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={containerVariants}
+        className="w-full"
       >
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-bold mb-16 text-center text-white"
-        >
-          Skills & Technologies
-        </motion.h2>
-
-        <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {portfolioData.skills.map((skill, index) => {
-            const skillData = iconMap[skill.name] || { 
-              icon: <TbCode />, 
-              color: 'from-gray-400 to-gray-600' 
-            };
-
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: index * 0.03 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative bg-gray-800 border-2 border-gray-700 rounded-xl p-6 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${skillData.color} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`} />
-                
-                <div className="relative z-10 flex items-center gap-4">
-                  <div className={`flex-shrink-0 bg-gradient-to-br ${skillData.color} p-3 rounded-lg text-white text-3xl group-hover:scale-110 transition-transform`}>
-                    {skillData.icon}
-                  </div>
-                  
-                  <div className="flex-1">
-                    <h3 className="font-bold text-white text-lg mb-1">
-                      {skill.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                      {skill.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <motion.div variants={itemVariants} className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white/90">
+            Tech <span className="text-gradient">Stack</span>
+          </h2>
         </motion.div>
 
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {categories.map((category, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className={`relative glass-panel rounded-[2rem] p-8 md:p-10 flex-grow basis-[300px] max-w-full md:max-w-[48%] transition-all duration-500 group ${category.shadow} ${category.border} border-t-white/10`}
+            >
+              {/* Top ambient glow bar */}
+              <div className={`absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <h3 className="text-2xl font-semibold tracking-tight text-white/90 mb-8 relative z-10 flex items-center gap-3">
+                <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${category.color} shadow-[0_0_10px_rgba(255,255,255,0.5)]`} />
+                {category.title}
+              </h3>
+
+              <div className="flex flex-wrap gap-2.5 relative z-10">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="text-sm px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.05] text-white/60 hover:text-white/90 hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 font-medium tracking-wide"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
